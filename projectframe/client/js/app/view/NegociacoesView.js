@@ -17,19 +17,30 @@ class NegociacoesView {
             </thead>
             
             <tbody>
-                ${model.negociacoes.map((n) => 
-                     `
-                        <tr>
-                            <td>${DateHelper.dataParaTexto(n.data)}</td>
-                            <td>${n.quantidade}</td>
-                            <td>${n.valor}</td>
-                            <td>${n.volume}</td>
-                        </tr>
-                    `
-                ).join('')}
+                ${model.negociacoes.map((n) => `
+
+                    <tr>
+                        <td>${DateHelper.dataParaTexto(n.data)}</td>
+                        <td>${n.quantidade}</td>
+                        <td>${n.valor}</td>
+                        <td>${n.volume}</td>
+                    </tr>
+
+                `).join('')}
             </tbody>
             
-            <tfoot>
+            <tfoot> 
+                <td colspan="3"></td>
+
+                /* Exemplo de IIFE - Immediately Invoked Funcion Expression */
+                <td>${
+                    (function() {
+                        let total = 0;
+                        model.negociacoes.forEach(n => total += n.volume);
+                        return total;
+                    })()
+                }
+                </td>
             </tfoot>
         </table>
         `;
