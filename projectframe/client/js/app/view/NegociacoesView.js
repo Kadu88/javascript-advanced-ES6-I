@@ -5,6 +5,7 @@ class NegociacoesView {
     }
 
     _template(model) {
+        
         return `
         <table class="table table-hover table-bordered">
             <thead>
@@ -54,7 +55,16 @@ class NegociacoesView {
 
                 <tr>
                     <td colspan="3">Volume Total - Arrow Short</td>
-                    <td> ${model.negociacoes.reduce((total, n) => total + n.volume, 0.0)}</td>
+                    <td>
+                        ${ //Example: reduce + arrow function
+                            model.negociacoes.reduce(
+                            (total, n) => total + n.volume, 0.0
+                            //Total = valor anterior
+                            //n = objeto da iteração atual
+                            //0.0 = valor inicial pro total
+                        ) 
+                        }
+                    </td>
                 </tr>
 
             </tfoot>
@@ -75,19 +85,66 @@ class NegociacoesView {
             <tfoot>
                     <tr>
                         <td colspan="3">Quantidade</td>
-                        <td>-</td>
+                        <td>
+                            ${model.negociacoes.reduce(function(total, num) { //Example, reduce + function
+                                return total + num.quantidade;
+                            }, 0)}
+                        </td>
                     </tr>
                     <tr>
                         <td colspan="3">Valor</td>
-                        <td>-</td>
+                        <td>
+                            ${model.negociacoes.reduce(function(total, num) { //Example, reduce + function
+                                return total + num.valor;
+                            }, 0)}
+                        </td>
                     </tr>
                     <tr>
                         <td colspan="3">Volume</td>
-                        <td>-</td>
+                        <td> 
+                            ${model.negociacoes.reduce(function(total, num) { //Example, reduce + function
+                                return total + num.volume;
+                            }, 0)}
+                        </td>
                     </tr>
 
 
             </tfoot>
+        </table>
+
+        <table class="table table-hover table-bordered">
+        <thead>
+            <tr>
+                <th colspan="3">Testes de métodos de tratamento</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+        </tbody>
+        <tfoot>
+                <tr>
+                    <td colspan="3">Reduce com Arrow Funtion (produtório) da quantidade</td>
+                    <td>
+                        ${model.negociacoes.reduce((produtorio, elemento) => produtorio * elemento.quantidade, 1)}
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">Valor</td>
+                    <td>
+                    -
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">Volume</td>
+                    <td> 
+                    -
+                    </td>
+                </tr>
+
+
+        </tfoot>
+    </table>
         `;
     }
 
@@ -95,7 +152,8 @@ class NegociacoesView {
         this._elemento.innerHTML = this._template(model);
     }
 
-    somatorioFor() {
+    _somatorioFor(model) {
+        return 360;
 
     }
 }

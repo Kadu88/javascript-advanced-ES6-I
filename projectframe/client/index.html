@@ -28,7 +28,7 @@
             <input id="valor" type="number" class="form-control"  min="0.01" step="0.01" value="0.0" required />
         </div>
         
-        <button class="btn btn-primary" type="submit">Incluir</button>
+        <button id="btIncluir" class="btn btn-primary" type="submit">Incluir</button>
     </form>
     
     <div class="text-center">
@@ -41,7 +41,12 @@
     </div> 
     <br>
     <br>
+    <br>
 
+        <button id="btRunTest" class="btn btn-primary" type="submit">Run Test</button>
+    <br>
+    <br>
+    
     <div id="negociacoesView"></div>
     <script src="js/app/models/Negociacao.js"></script>
     <script src="js/app/controllers/NegociacaoController.js"></script>

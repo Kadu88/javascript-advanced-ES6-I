@@ -19,6 +19,10 @@ class NegociacaoController {
         this._negociacoesView.update(this._listaNegociacoes);
         this._limpaFormulario();   
     }
+
+    runTest(event) {
+        alert("Test");
+    }
     
     _criaNegociacao() {
         

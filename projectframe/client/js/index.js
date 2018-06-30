@@ -8,7 +8,7 @@ console.log(campos);
 
 var tbody = document.querySelector('table tbody');
 
-document.querySelector('.form').addEventListener('submit', function(event) {
+document.querySelector('.form').querySelector('#btIncluir').addEventListener('submit', function(event) {
     
    event.preventDefault();
    
