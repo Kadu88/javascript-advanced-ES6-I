@@ -30,29 +30,72 @@ class NegociacoesView {
             </tbody>
             
             <tfoot> 
-                <td /*colspan="3" */>Total - IIEF / Arrow Full / Arrow Short </td>
+               
 
-                /* Exemplo de IIFE - Immediately Invoked Funcion Expression */
-                <td>${
-                    (function() {
-                        let total = 0;
-                        model.negociacoes.forEach(n => total += n.volume);
-                        return total;
-                    })() 
-                }
-                </td>
-                <td>${
+                <tr>
+                    <td colspan="3">Volume Total - IIEF</td>
+                    <td>${
+                        (function() {
+                            let total = 0;
+                            model.negociacoes.forEach(n => total += n.volume);
+                            return total;
+                        })() 
+                    }
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">Volume Total - Arrow Full</td>
+                    <td>${
                         model.negociacoes.reduce(function(total, n) {
                             return total+n.volume;
                         }, 0.0)
                 }</td>
-                <td> ${model.negociacoes.reduce((total, n) => total + n.volume, 0.0)}</td>
+                </tr>
+
+                <tr>
+                    <td colspan="3">Volume Total - Arrow Short</td>
+                    <td> ${model.negociacoes.reduce((total, n) => total + n.volume, 0.0)}</td>
+                </tr>
+
             </tfoot>
         </table>
+
+        </p>
+
+        <table class="table table-hover table-bordered">
+            <thead>
+                <tr>
+                    <th colspan="3">Somatório dos valores da tabela acima</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            
+            <tbody>
+            </tbody>
+            <tfoot>
+                    <tr>
+                        <td colspan="3">Quantidade</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">Valor</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">Volume</td>
+                        <td>-</td>
+                    </tr>
+
+
+            </tfoot>
         `;
     }
 
     update(model) {
         this._elemento.innerHTML = this._template(model);
+    }
+
+    somatorioFor() {
+
     }
 }
