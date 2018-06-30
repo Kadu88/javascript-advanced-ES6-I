@@ -5,6 +5,24 @@ class NegociacoesView {
     }
 
     _template(model) {
+
+        let funcionarios = [
+            {
+                "nome": "Douglas",
+                "endereco" : "Rua da esquina, 123",
+                "salario" : "4500"
+            },
+            {
+                "nome": "Felipe",
+                "endereco" : "Rua da virada, 456",
+                "salario" : "5000"
+            },
+            {
+                "nome": "Silvio",
+                "endereco" : "Rua da aresta, 789",
+                "salario" : "6000"
+            }
+        ];
         
         return `
         <table class="table table-hover table-bordered">
@@ -143,6 +161,35 @@ class NegociacoesView {
                 </tr>
 
 
+        </tfoot>
+    </table>
+
+
+
+
+    <table class="table table-hover table-bordered">
+        <thead>
+            <tr>
+                <th colspan="3">Funcionários</th>
+            </tr>
+            <tr>
+                <th>Nome</th>
+                <th>Endereço</th>
+                <th>Salário</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            ${funcionarios.map((f) => `
+            
+                <tr>
+                    <td>${f.nome}</td>
+                    <td>${f.endereco}</td>
+                    <td>${f.salario}</td>
+                </tr>
+            `).join('')}
+        </tbody>
+        <tfoot>
         </tfoot>
     </table>
         `;
