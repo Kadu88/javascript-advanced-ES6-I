@@ -5,12 +5,10 @@ class MensagemView {
     }
 
     _template(model) {
-
         return `<p class="alert alert-info">${model.texto}</p>`;
     }
 
-    _update(model) {
-
-        this._elemento.innerHTML = this._template(model);
+    update(model) {
+        this._elemento.innerHTML = this._template(model);      
     }
 }
