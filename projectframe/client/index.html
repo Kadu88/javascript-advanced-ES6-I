@@ -12,9 +12,9 @@
     <h1 class="text-center">Negociações</h1>
     
     <div id="mensagemView"></div>
-        
+    
     <form class="form" onsubmit="negociacaoController.adiciona(event)">
-
+        
         <div class="form-group">
             <label for="data">Data</label>
             <input type="date" id="data" class="form-control" required autofocus/>        
@@ -30,7 +30,7 @@
             <input id="valor" type="number" class="form-control"  min="0.01" step="0.01" value="0.0" required />
         </div>
         
-        <button id="btIncluir" class="btn btn-primary" type="submit">Incluir</button>
+        <button class="btn btn-primary" type="submit">Incluir</button>
     </form>
     
     <div class="text-center">
@@ -43,21 +43,17 @@
     </div> 
     <br>
     <br>
-    <br>
-
-        <button id="btRunTest" class="btn btn-primary" type="submit">Run Test</button>
-    <br>
-    <br>
     
     <div id="negociacoesView"></div>
-    <script src="js/app/models/ListaNegociacoes.js"></script>
-    <script src="js/app/models/Mensagem.js"></script>
+    
     <script src="js/app/models/Negociacao.js"></script>
-    <script src="js/app/views/View.js"></script>
-    <script src="js/app/views/NegociacoesView.js"></script>
-    <script src="js/app/views/MensagemView.js"></script>
     <script src="js/app/controllers/NegociacaoController.js"></script>
     <script src="js/app/helpers/DateHelper.js"></script>
+    <script src="js/app/models/ListaNegociacoes.js"></script>
+    <script src="js/app/views/View.js"></script>
+    <script src="js/app/views/NegociacoesView.js"></script>
+    <script src="js/app/models/Mensagem.js"></script>
+    <script src="js/app/views/MensagemView.js"></script>
     <script>
         let negociacaoController = new NegociacaoController();
     </script>
